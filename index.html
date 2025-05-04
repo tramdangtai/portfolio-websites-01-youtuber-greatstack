@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Porfolio Website - GreatStack</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f86ba7c6f7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- 1. HEADER -->
+    <header>
+        <div class="header__container">
+            <nav>
+                <img src="images/logo.png" alt="logo images">
+                <ul class="sideBar">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#porfolio">Porfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark iconCloseSideBar"></i>
+                </ul>
+                <i class="fa-solid fa-bars iconOpenSideBar"></i>
+            </nav>
+            <div class="header__text">
+                <h1>Data Analyst</h1>
+                <h2>Hi, I'm <span>Reacher</span><br>from Viet Nam.</h2>
+            </div>
+        </div>
+    </header>
+<!-- 2. ABOUT SECTION -->
+    <section id="about" class="about__container">
+        <div class="about__img">
+            <img src="images/user.png" alt="user images">
+        </div>
+        <div class="about__description">
+            <h2 class="sub__title">About Me</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas consequatur eum illum facilis at? Qui ad commodi accusantium quaerat, blanditiis modi, vel debitis ducimus dolorem odit consectetur aut nostrum omnis.</p>
+            <ul class="tab__link">
+                <li class="active__link" data-id="skills">Skills</li>
+                <li data-id="experience">Experience</li>
+                <li data-id="education">Education</li>
+            </ul>
+            <div class="about__tabs active__tab" id="skills">
+                <div class="about__tab__detail">
+                    <h3>UI/UX</h3>
+                    <p>Designing Web/App interfaces</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>Web Development</h3>
+                    <p>Web App Development</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>App Development</h3>
+                    <p>Build Android/iOS apps</p>
+                </div>
+            </div>
+            <div class="about__tabs" id="experience">
+                <div class="about__tab__detail">
+                    <h3>2021 - Current</h3>
+                    <p>UX/UI Design Training at ET Institute</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>2019 - 2021</h3>
+                    <p>Team Leader at StarApp LLC</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>2017 - 2019</h3>
+                    <p>UX/UI Design Executive at Coin Digital Ltd.</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>2016 - 2017</h3>
+                    <p>Intership at ekart eCommerce.</p>
+                </div>
+            </div>
+            <div class="about__tabs" id="education">
+                <div class="about__tab__detail">
+                    <h3>2016</h3>
+                    <p>UX/UI Design Training at ET Institute</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>2015</h3>
+                    <p>MBA from MIT Bangalore</p>
+                </div>
+                <div class="about__tab__detail">
+                    <h3>2014</h3>
+                    <p>BBA from ISM Bangalore</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!-- 3. SERVICES -->
+    <section id="services" class="services__container">
+        <h2 class="sub__title">My Services</h2>
+        <div class="services__list info__list">
+            <div class="services__detail">
+                <span><i class="fa-solid fa-code"></i></span>
+                <h3>Web Design</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum natus sint dolor rem quasi, nesciunt architecto eum molestiae animi. Id dolorum a eos consequuntur quam eveniet enim laborum qui sit.</p>
+                <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="services__detail">
+                <span><i class="fas fa-crop-alt"></i></span>
+                <h3>UX/UI Design</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum natus sint dolor rem quasi, nesciunt architecto eum molestiae animi. Id dolorum a eos consequuntur quam eveniet enim laborum qui sit.</p>
+                <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="services__detail">
+                <span><i class="fab fa-app-store"></i></span>
+                <h3>App Design</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum natus sint dolor rem quasi, nesciunt architecto eum molestiae animi. Id dolorum a eos consequuntur quam eveniet enim laborum qui sit.</p>
+                <a href="#">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+<!-- 4. PORFOLIO -->
+    <section id="porfolio" class="porfolio__container">
+        <h2 class="sub__title">My Work</h2>
+        <div class="work__list info__list">
+            <div class="work__detail">
+                <img src="images/work-1.png" alt="work 1 from my porfolio">
+                <div class="work__layer">
+                    <h3>Social Media App</h3>
+                    <p>The app connects you to the talentd people around the world. Download it from play store.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work__detail">
+                <img src="images/work-2.png" alt="work 2 from my porfolio">
+                <div class="work__layer">
+                    <h3>Music App</h3>
+                    <p>The app connects you to the talentd people around the world. Download it from play store.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work__detail">
+                <img src="images/work-3.png" alt="work 3 from my porfolio">
+                <div class="work__layer">
+                    <h3>Online Shopping App</h3>
+                    <p>The app connects you to the talentd people around the world. Download it from play store.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </section>
+<!-- 5. CONTACT -->
+    <section id="contact" class="contact__container">
+        <div class="contact__info">
+            <h2 class="sub__title">Contact Me</h2>
+            <p><i class="fa-solid fa-square-envelope"></i>contact@example.com</p>
+            <p><i class="fa-solid fa-mobile"></i>0123456789</p>
+            <ul class="social__list">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <a href="images/Data Analyst - Tram Dang Tai - CV English.pdf" download class="btn">Download CV</a>
+        </div>
+        <form  class="contact__form" name="submit-to-google-sheet">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Submit</button>
+            <span id="msg"></span>
+        </form>
+        
+    </section>
+<!-- 6. FOOTER -->
+    <footer>
+        <p>Copyright <i class="fa-solid fa-copyright"></i> Kevin. Made with by Easy Tutorials. <i class="fa-solid fa-heart"></i></p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

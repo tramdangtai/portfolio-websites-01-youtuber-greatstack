@@ -1,0 +1,473 @@
+/* 0. root */
+:root {
+    --text-light: #fff;
+    --primary-red-color: #ff004f;
+    --background-dark-light: #262626
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding-block: 20px;
+}
+/* overflow-x: hidden --> để đảm bảo không tràn nội dung ra ngoài pages */
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* 1. HEADER SECTION*/
+/* height: 100vh -->  Chiều cao của header được đặt là 100% chiều cao của vùng hiển thị trình duyệt (viewport height – viết tắt là vh). 100vh = toàn bộ chiều cao khung trình duyệt, 
+nên phần header này sẽ cao bằng toàn màn hình.
+background-size: cover --> Hình nền sẽ được phóng to hoặc thu nhỏ để bao phủ toàn bộ phần tử header, có thể bị cắt nếu tỷ lệ hình không phù hợp. Nhưng sẽ không có khoảng trống nào cả.
+background-position: center --> Căn giữa hình nền trong phần tử header, nghĩa là tâm của hình ảnh sẽ được đặt tại tâm của phần tử.
+*/
+.header__container {
+    width: 100%;
+    background-image: url(images/background.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+/* padding: 10px 10% --> chỗ này thì left với right sẽ là mỗi cái 10% so với toàn bộ 100% của đối tượng*/
+.header__container {
+    padding: 10px 10%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav > img {
+    width: 140px;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 18px;
+    position: relative;
+    transition: font-weight 0.5s ease;
+}
+nav a:hover{
+    font-weight: 600;
+}
+/* nav a::after -->  Tạo phần tử giả sau mỗi thẻ <a> trong nav.
+content: '': Bắt buộc phải có để tạo phần tử giả, dù nội dung rỗng.
+width: 0: Ban đầu độ dài vạch là 0, nên không thấy gì.
+height: 3px: Độ dày của vạch.
+background: #ff004f: Màu sắc của vạch.
+left: 0: Vạch bắt đầu từ cạnh trái của link.
+bottom: -6px: Đặt vạch cách phần đáy của link 6px (vạch ở phía dưới). Phụ thuộc vào chiều cao của chữ để set bao nhiêu px nha.
+transition: width 0.3s ease --> hiệu ứng mượt
+*/
+nav a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--primary-red-color);
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+/* Khi hover chuột, vạch này “chạy” ra toàn bộ chiều ngang của link. */
+nav a:hover::after {
+    width: 100%;
+}
+
+
+.header__text {
+    margin-top: 20%;
+    width: fit-content;
+}
+
+.header__text h2 {
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.header__text span {
+    color: var(--primary-red-color);
+}
+
+/* 2. ABOUT SECTION */
+.about__container {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Gán kích thước cơ sở ban đầu của phần tử .about__img là 35% chiều ngang của .about__container. 
+Nó không phải chiều rộng cố định, mà là chiều ngang ưu tiên khi flexbox tính toán phân chia không gian. */
+.about__img {
+    flex-basis: 35%;
+    margin-left: 20px;
+}
+
+.about__img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* flex-basis: 60% --> chiếm 60% chiều ngang của container. */
+.about__description {
+    flex-basis: 60%;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+}
+
+.sub__title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--text-light);
+    padding-block: 20px;
+}
+.tab__link {
+    width: fit-content;
+}
+.about__description li {
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.about__description li::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--primary-red-color);
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.about__description li:hover::after {
+    width: 100%;
+}
+
+.about__description li.active__link::after {
+    width: 50%;
+}
+
+.about__description li.active__link {
+    font-weight: 600;
+    transform: translateY(-3px);
+}
+
+.about__tab__detail {
+    padding-block: 15px;
+}
+
+.about__tab__detail h3 {
+    color: var(--primary-red-color);
+}
+
+.about__tabs {
+    display: none;
+}
+
+.about__tabs.active__tab {
+    display: inline-block;
+}
+
+/* 3. SERVICES SECTION*/
+.services__container {
+    padding-block: 20px;
+    padding-inline: 20px;
+}
+
+.info__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* transition - chỗ này nếu muốn hover thay đổi gì, thì thêm chỗ này vào. */
+.services__detail {
+    padding: 20px 20px;
+    background: var(--background-dark-light);
+    border-radius: 15px;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.services__detail span {
+    font-size: 50px;
+}
+.services__detail h3 {
+    padding-block: 15px;
+    font-weight: 500;
+}
+.services__detail a {
+    text-decoration: none;
+    color: var(--text-light);
+    margin-top: 1.2rem;
+    font-size: 12px;
+}
+
+.services__detail:hover{
+    background-color: var(--primary-red-color);
+    transform: translateY(-10px);
+}
+
+/* 4. PORFOLIO */
+.porfolio__container {
+    padding: 40px 20px;
+}
+.work__detail {
+    position: relative;
+    overflow: hidden;
+}
+.work__detail img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.work__layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), --primary-red-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-inline: 10px;
+    font-size: 14px;
+    transition: height 0.5s ease;
+}
+
+.work__layer h3 {
+    padding-block: 15px;
+    font-weight: 500;
+}
+
+.work__layer a {
+    margin-top: 20px;
+    color: var(--primary-red-color);
+    text-decoration: none;
+    font-size: 18px;
+    background-color: var(--text-light);
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    line-height: 60px;
+    border-radius: 50%;
+}
+/* khi hover, thì hình ảnh sẽ phóng to lên 1.1 lần. */
+.work__detail:hover img{
+    transform: scale(1.1);
+}
+
+/* Chỗ này hay nè. Là kiểu khi set cái .work__layer, thì để height = 0, rồi code này, làm cái hover, thì lấy height = 100%. Kiểu xuất hiện á.*/
+.work__detail:hover .work__layer {
+    height: 100%;
+}
+
+.btn {
+    display: block;
+    margin: 50px auto;
+    padding: 14px 50px;
+    border: 1px solid var(--primary-red-color);
+    border-radius: 6px;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: background-color 0.5s ease;
+}
+.btn:hover {
+    background-color: var(--primary-red-color);
+}
+
+/* 5. CONTACT */
+.contact__container {
+    display: flex;
+}
+
+.contact__info {
+    flex-basis: 35%;
+    padding-inline: 20px;
+}
+
+.contact__form {
+    flex-basis: 60%;
+}
+
+.contact__info p{
+    padding-block: 0.7rem;
+}
+.contact__info p i {
+    padding-inline: 0.7rem;
+    color: var(--primary-red-color);
+    font-size: 25px;
+}
+
+.social__list a {
+    font-size: 30px;
+    color: var(--text-light);
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.social__list a:hover{
+    color: var(--primary-red-color);
+    transform: translateY(-5px);
+}
+
+.contact__info .btn {
+    margin-left: 0;
+}
+
+.contact__form {
+    width: 100%;
+}
+.contact__form input, textarea {
+    background-color: var(--background-dark-light);
+    color: var(--text-light);
+    width: 100%;
+    border: 0;
+    outline: none;
+    padding: 15px;
+    margin: 5px 0;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.contact__form button{
+    background-color: var(--primary-red-color);
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding-block: 25px;
+    background: var(--background-dark-light);
+    font-weight: 300;
+}
+
+footer i:last-child {
+    color: var(--primary-red-color);
+}
+
+/* FORM */
+#msg {
+    color: var(--primary-red-color);
+    margin-top: -10px;
+    display: block;
+}
+
+/* n. CSS FOR SMALL CREENS */
+nav :is(.iconCloseSideBar, .iconOpenSideBar){
+    display: none;
+}
+
+@media (max-width: 600px) {
+    /* SECTION HEADER */
+    .header__container {
+        background-image: url(images/phone-background.png);
+    }
+    .header__text {
+        transform: translateX(-15px);
+    }
+    .header__text h1{
+        font-size: 1.5rem;
+    }
+    .header__text h2{
+        font-size: 1.9rem;
+    }
+    nav :is(.iconCloseSideBar, .iconOpenSideBar){
+        display: block;
+        font-size: 35px;
+        cursor: pointer;
+    }
+    .sideBar {
+        display: flex;
+        isolation: isolate;
+        flex-direction: column;
+        gap: 10px;
+        background-color: var(--background-dark-light);
+        top: 0;
+        padding-top: 30px;
+        right: 0;
+        position: fixed;
+        width: 100px;
+        z-index: 2;
+        border-bottom-left-radius: 10px;
+        display: none;
+    }
+    .iconCloseSideBar {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+    }
+
+    /* SECTION ABOUT */
+    .about__container {
+        flex-direction: column;
+    }
+    .about__img {
+        margin-left: unset;
+    }
+    .tab__link {
+        flex-wrap: wrap;
+    }
+    /* SECTION SERVICES */
+    .info__list {
+        grid-template-columns: unset;
+        gap: 15px;
+    }
+    /* SECTION CONTACT */
+    .contact__container {
+        display: unset;
+    }
+    .social__list {
+        justify-content: center;
+    }
+    .contact__info .btn {
+        margin: 20px auto;
+    }
+    .contact__form {
+        margin-inline: 20px;
+        width: unset;
+        margin-bottom: 40px;
+    }
+    /* SECTION FOOTER */
+    footer {
+        font-size: 0.5rem;
+        padding-block: 10px;
+    }
+}
